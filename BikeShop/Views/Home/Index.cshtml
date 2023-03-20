@@ -1,0 +1,11 @@
+﻿@model IndexViewModel
+@{
+    var imagePath = "images/bikes/bike" + Model.Count.ToString() + ".jpg";
+}
+
+<div class="bg-image" style="
+    background-image: url(@imagePath);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50vh;">
+</div>
