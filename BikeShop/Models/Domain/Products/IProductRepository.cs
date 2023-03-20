@@ -1,4 +1,4 @@
-﻿namespace BikeShop.Models.Products
+﻿namespace BikeShop.Models.Domain.Products
 {
     public interface IProductRepository
     {

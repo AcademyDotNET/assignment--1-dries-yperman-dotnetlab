@@ -1,4 +1,4 @@
-﻿namespace BikeShop.Models.Products
+﻿namespace BikeShop.Models.Domain.Products
 {
     public class ProductRepository : IProductRepository
     {
@@ -16,7 +16,7 @@
             {
                 Id = 3, Name = "Rocky Mountain", Price = 1099
             }
-        };  
+        };
         public List<Product> GetProducts()
         {
             return _products;

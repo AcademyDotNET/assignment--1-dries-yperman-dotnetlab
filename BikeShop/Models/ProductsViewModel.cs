@@ -1,4 +1,4 @@
-﻿using BikeShop.Models.Products;
+﻿using BikeShop.Models.Domain.Products;
 
 namespace BikeShop.Models
 {

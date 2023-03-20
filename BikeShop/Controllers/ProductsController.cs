@@ -1,5 +1,5 @@
 ﻿using BikeShop.Models;
-using BikeShop.Models.Products;
+using BikeShop.Models.Domain.Products;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BikeShop.Controllers
