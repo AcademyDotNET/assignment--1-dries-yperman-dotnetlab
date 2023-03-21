@@ -2,7 +2,10 @@
 using BikeShop.Models;
 using BikeShop.Models.Domain;
 using BikeShop.Models.Domain.Products;
+using BikeShop.Models.Domain.ShoppingItems;
+using BikeShop.Models.Domain.ShoppingBags;
 using Microsoft.AspNetCore.Mvc;
+using BikeShop.Models.Domain.Customers;
 
 namespace BikeShop.Controllers
 {
@@ -17,7 +20,6 @@ namespace BikeShop.Controllers
         public ProductsController(ILogger<HomeController> logger, BikeShopContext context)
         {
             _logger = logger;
-            //_productRepository = productRepository;
             _context = context;
         }
         public async Task<IActionResult> Index(int? pageNumber)
@@ -33,21 +35,32 @@ namespace BikeShop.Controllers
         }
         public IActionResult Details(int id)
         {
-            _logger.LogInformation(id.ToString());
             var vm = new DetailsViewModel();
             var product = Read(id);
             if (product != null)
             {
                 vm.Product = product;
                 return View(vm);
-            } else return RedirectToAction("Index");
+            }
+            else return RedirectToAction("Index");
         }
+        /*public IActionResult Submit(Product product, int quantity)
+        {
+            var shoppingItem = new ShoppingItem
+            {
+                Quantity = quantity,
+                Product = product
+            };
+
+
+        }*/
 
         // -----CRUD-----
         public void Create(Product product)
         {
             _context.Add(product);
-            _context.SaveChanges();        }
+            _context.SaveChanges();
+        }
         private Product? Read(int id)
         {
             Product? product = _context.products.Where(e => e.Id == id).FirstOrDefault();
@@ -63,21 +76,5 @@ namespace BikeShop.Controllers
             _context.Remove(id);
         }
         // -----CRUD-----
-
-        public IActionResult AddProducts()
-        {
-            _logger.LogDebug("Adding a list of products.");
-
-            IProductRepository productRepository = new ProductRepository();
-            var products = productRepository.GetProducts();
-
-            foreach (Product product in products)
-            {
-                _logger.LogDebug($"Adding product: {product.Name}");
-                _context.Add(product);
-            }
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
     }
 }

@@ -18,7 +18,7 @@ namespace BikeShop.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<int>(type: "int", nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +32,7 @@ namespace BikeShop.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(8,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,14 +46,15 @@ namespace BikeShop.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false)
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId1 = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_shoppingBags", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_shoppingBags_customers_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_shoppingBags_customers_CustomerId1",
+                        column: x => x.CustomerId1,
                         principalTable: "customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -66,8 +67,8 @@ namespace BikeShop.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    BagId = table.Column<long>(type: "bigint", nullable: false),
-                    ProductId = table.Column<long>(type: "bigint", nullable: false)
+                    ProductId = table.Column<long>(type: "bigint", nullable: false),
+                    ShoppingBagId = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,27 +80,26 @@ namespace BikeShop.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_shoppingItems_shoppingBags_BagId",
-                        column: x => x.BagId,
+                        name: "FK_shoppingItems_shoppingBags_ShoppingBagId",
+                        column: x => x.ShoppingBagId,
                         principalTable: "shoppingBags",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_shoppingBags_CustomerId",
+                name: "IX_shoppingBags_CustomerId1",
                 table: "shoppingBags",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_shoppingItems_BagId",
-                table: "shoppingItems",
-                column: "BagId");
+                column: "CustomerId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_shoppingItems_ProductId",
                 table: "shoppingItems",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_shoppingItems_ShoppingBagId",
+                table: "shoppingItems",
+                column: "ShoppingBagId");
         }
 
         /// <inheritdoc />

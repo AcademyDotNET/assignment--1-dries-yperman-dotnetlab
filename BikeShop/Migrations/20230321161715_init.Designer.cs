@@ -4,6 +4,7 @@ using BikeShop.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BikeShop.Migrations
 {
     [DbContext(typeof(BikeShopContext))]
-    partial class BikeShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230321161715_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +74,10 @@ namespace BikeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CustomerId")
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("CustomerId1")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date")
@@ -79,7 +85,7 @@ namespace BikeShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerId1");
 
                     b.ToTable("shoppingBags");
                 });
@@ -114,7 +120,7 @@ namespace BikeShop.Migrations
                 {
                     b.HasOne("BikeShop.Models.Domain.Customers.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

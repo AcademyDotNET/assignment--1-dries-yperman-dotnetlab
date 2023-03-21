@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BikeShop.Migrations
 {
     [DbContext(typeof(BikeShopContext))]
-    [Migration("20230321093414_init")]
-    partial class init
+    [Migration("20230321162433_correct")]
+    partial class correct
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,9 @@ namespace BikeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("FirstName")
-                        .HasColumnType("int");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -58,7 +59,7 @@ namespace BikeShop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
 
@@ -94,20 +95,20 @@ namespace BikeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("BagId")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("ProductId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<long?>("ShoppingBagId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("BagId");
-
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("ShoppingBagId");
 
                     b.ToTable("shoppingItems");
                 });
@@ -115,7 +116,7 @@ namespace BikeShop.Migrations
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", b =>
                 {
                     b.HasOne("BikeShop.Models.Domain.Customers.Customer", "Customer")
-                        .WithMany("Bags")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -125,26 +126,17 @@ namespace BikeShop.Migrations
 
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingItems.ShoppingItem", b =>
                 {
-                    b.HasOne("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", "Bag")
-                        .WithMany("Items")
-                        .HasForeignKey("BagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BikeShop.Models.Domain.Products.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Bag");
+                    b.HasOne("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", null)
+                        .WithMany("Items")
+                        .HasForeignKey("ShoppingBagId");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("BikeShop.Models.Domain.Customers.Customer", b =>
-                {
-                    b.Navigation("Bags");
                 });
 
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", b =>

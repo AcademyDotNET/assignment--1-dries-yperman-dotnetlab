@@ -8,7 +8,9 @@ namespace BikeShop.Models.Domain.ShoppingBags
         public long Id { get; set; }
         public DateTime Date { get; set; }
 
-        public Customer Customer { get; set; }
-        public List<ShoppingItem> Items { get; set; }
+
+        public Customer Customer { get; set; } // Navigation property
+
+        public ICollection<ShoppingItem> Items { get; set; } // Collection navigation property
     }
 }

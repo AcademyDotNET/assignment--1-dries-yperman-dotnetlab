@@ -19,8 +19,6 @@ namespace BikeShop
                 options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                 .UseSqlServer(Configuration.GetConnectionString("defaultconnection")));
 
-            //services.AddSingleton<IProductRepository, ProductRepository>();
-
             services.AddControllersWithViews();
         }
 
