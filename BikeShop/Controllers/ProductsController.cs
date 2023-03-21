@@ -32,6 +32,26 @@ namespace BikeShop.Controllers
             return View(vm);
         }
 
+        // -----CRUD-----
+        public void Create(Product product)
+        {
+            _context.Add(product);
+            _context.SaveChanges();        }
+        public void Read(int id)
+        {
+            var product = _context.products.Where(e => e.Id == id).FirstOrDefault();
+        }
+        public void Update(Product product)
+        {
+            _context.Add(product);
+            _context.SaveChanges();
+        }
+        public void Delete(int id)
+        {
+            _context.Remove(id);
+        }
+        // -----CRUD-----
+
         public IActionResult AddProducts()
         {
             _logger.LogDebug("Adding a list of products.");
