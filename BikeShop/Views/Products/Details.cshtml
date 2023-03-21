@@ -1,0 +1,17 @@
+﻿@model DetailsViewModel
+@{
+    var product = Model.Product;
+}
+
+<div class="container mt-5">
+    <h1>Bike Details</h1>
+    <div class="card mt-4">
+        <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Bike Image">
+        <div class="card-body">
+            <h5 class="card-title">@product.Name</h5>
+            <p class="card-text">Price: $@product.Price</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris euismod, finibus sapien nec, ullamcorper sapien.</p>
+            <a href="#" class="btn btn-primary">Purchase</a>
+        </div>
+    </div>
+</div>

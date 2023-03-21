@@ -31,15 +31,27 @@ namespace BikeShop.Controllers
             vm.Products = paginatedProducts;
             return View(vm);
         }
+        public IActionResult Details(int id)
+        {
+            _logger.LogInformation(id.ToString());
+            var vm = new DetailsViewModel();
+            var product = Read(id);
+            if (product != null)
+            {
+                vm.Product = product;
+                return View(vm);
+            } else return RedirectToAction("Index");
+        }
 
         // -----CRUD-----
         public void Create(Product product)
         {
             _context.Add(product);
             _context.SaveChanges();        }
-        public void Read(int id)
+        private Product? Read(int id)
         {
-            var product = _context.products.Where(e => e.Id == id).FirstOrDefault();
+            Product? product = _context.products.Where(e => e.Id == id).FirstOrDefault();
+            return product;
         }
         public void Update(Product product)
         {
