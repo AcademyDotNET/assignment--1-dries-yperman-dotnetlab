@@ -1,6 +1,4 @@
-﻿using BikeShop.Models.Products;
-
-namespace BikeShop.Models
+﻿namespace BikeShop.Models
 {
     public class DetailsViewModel
     {
