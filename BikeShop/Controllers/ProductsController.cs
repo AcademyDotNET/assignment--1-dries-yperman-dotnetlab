@@ -27,5 +27,20 @@ namespace BikeShop.Controllers
             vm.Products = products;
             return View(vm);
         }
+        public IActionResult AddProducts()
+        {
+            _logger.LogDebug("Adding a list of products.");
+
+            IProductRepository productRepository = new ProductRepository();
+            var products = productRepository.GetProducts();
+
+            foreach (Product product in products)
+            {
+                _logger.LogDebug($"Adding product: {product.Name}");
+                _context.Add(product);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

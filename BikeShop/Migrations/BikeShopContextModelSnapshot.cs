@@ -39,7 +39,7 @@ namespace BikeShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("customers");
+                    b.ToTable("customers", (string)null);
                 });
 
             modelBuilder.Entity("BikeShop.Models.Domain.Products.Product", b =>
@@ -59,7 +59,7 @@ namespace BikeShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("products");
+                    b.ToTable("products", (string)null);
                 });
 
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", b =>
@@ -80,7 +80,7 @@ namespace BikeShop.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("shoppingBags");
+                    b.ToTable("shoppingBags", (string)null);
                 });
 
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingItems.ShoppingItem", b =>
@@ -106,7 +106,7 @@ namespace BikeShop.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("shoppingItems");
+                    b.ToTable("shoppingItems", (string)null);
                 });
 
             modelBuilder.Entity("BikeShop.Models.Domain.ShoppingBags.ShoppingBag", b =>
