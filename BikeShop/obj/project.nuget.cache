@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SOHo8TKU/lVxBHW5mRttX4Ph/tstWvWA2hIzWjpgf1I39gt773mjkUEuqu2aYF/J2LSfe9UcgHfON6PW/TqLiA==",
+  "dgSpecHash": "Y3cmommdeN62sJRr6x8G9t/Jfz22BZxkecZxm3ptMTQRUOYCsd1cbivc1hwz9VFsmfulNAE/tMfG71KBpdtjzg==",
   "success": true,
   "projectFilePath": "D:\\DOTnet\\Academy\\Oefeningen\\BikeShop\\BikeShop\\BikeShop.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,6 @@
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.4\\microsoft.entityframeworkcore.design.7.0.4.nupkg.sha512",
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.4\\microsoft.entityframeworkcore.relational.7.0.4.nupkg.sha512",
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.4\\microsoft.entityframeworkcore.sqlserver.7.0.4.nupkg.sha512",
-    "C:\\Users\\dries\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.4\\microsoft.entityframeworkcore.tools.7.0.4.nupkg.sha512",
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\dries\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",

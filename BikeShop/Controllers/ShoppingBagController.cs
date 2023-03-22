@@ -1,4 +1,4 @@
-﻿using BikeShop.Models;
+﻿/*using BikeShop.Models;
 using BikeShop.Models.Domain;
 using BikeShop.Models.Domain.Customers;
 using BikeShop.Models.Domain.ShoppingBags;
@@ -33,3 +33,4 @@ namespace BikeShop.Controllers
         }
     }
 }
+*/

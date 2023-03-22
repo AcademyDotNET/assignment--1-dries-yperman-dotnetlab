@@ -1,50 +1,57 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BikeShop.Models;
-using BikeShop.Models.Domain;
-using BikeShop.Models.Domain.Products;
-using BikeShop.Models.Domain.ShoppingItems;
-using BikeShop.Models.Domain.ShoppingBags;
+﻿using BikeShop.Models;
 using Microsoft.AspNetCore.Mvc;
-using BikeShop.Models.Domain.Customers;
+using BikeShop.Data.Repositories;
+using BikeShop.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
+using AspNetCore;
+
+// Now using entities --> ModelMapper?
 
 namespace BikeShop.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        BikeShopContext _context;
+        private readonly IProductRepository _productRepository;
+        private readonly IShoppingBagRepository _shoppingBagRepository;
 
-        private int pageSize = 8;
-        private Customer _customer;
+        private ProductsViewModel _productsViewModel;
+        private DetailsViewModel _detailsViewModel;
 
-        public ProductsController(ILogger<HomeController> logger, BikeShopContext context)
-        {
-            _logger = logger;
-            _context = context;
-            _customer = _context.customers.First();
-        }
-        public async Task<IActionResult> Index(int? pageNumber)
-        {
-            _logger.LogDebug("Showing a list with all the products to the user.");
+        private int customerId = 1; // For now there is only one user
+        private int _pageSize = 8;
 
-            var vm = new ProductsViewModel();
-            IQueryable<Product> products = _context.products.AsQueryable()
-                .OrderBy(e => e.Name).ThenBy(e => e.Price);
-            var paginatedProducts = await PaginatedList<Product>.CreateAsync(products.AsNoTracking(), pageNumber ?? 1, pageSize);
-            vm.Products = paginatedProducts;
-            return View(vm);
-        }
-        public IActionResult Details(int id)
+        public ProductsController(IProductRepository productRepository, IShoppingBagRepository shoppingBagRepository)
         {
-            var vm = new DetailsViewModel();
-            var product = Read(id);
-            if (product != null)
-            {
-                vm.Product = product;
-                return View(vm);
-            }
-            else return RedirectToAction("Index");
+            _productRepository = productRepository;
+            _shoppingBagRepository = shoppingBagRepository;
+
+            _productsViewModel = new ProductsViewModel();
+            _detailsViewModel = new DetailsViewModel();
         }
+
+        public async Task<IActionResult> Index(int? pageIndex)
+        {
+            var products = _productRepository.GetAll();
+            var paginatedList = await PaginatedList<Product>.CreateAsync(products.AsNoTracking(), pageIndex ?? 1, _pageSize);
+            _productsViewModel.Products = paginatedList;
+            return View(_productsViewModel);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var product = await _productRepository.GetById(id);
+            _detailsViewModel.Product = product;
+            return View(_detailsViewModel);
+        }
+
+        public async Task<IActionResult> Submit(int productId, int quantity)
+        {
+
+            return RedirectToAction("Index", "ShoppingBagController");
+        }
+
+        /*
         public IActionResult Submit(int productId, int quantity)
         {
             var product = _context.products.First(e => e.Id == productId);
@@ -79,6 +86,6 @@ namespace BikeShop.Controllers
         {
             _context.Remove(id);
         }
-        // -----CRUD-----
+        // -----CRUD-----*/
     }
 }

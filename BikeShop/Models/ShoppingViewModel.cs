@@ -1,9 +1,9 @@
-﻿using BikeShop.Models.Domain.ShoppingBags;
+﻿using BikeShop.Data.Entities;
 
 namespace BikeShop.Models
 {
     public class ShoppingViewModel
     {
-        public ShoppingBag ShoppingBag { get; set; }
+        public ShoppingBag? ShoppingBag { get; set; }
     }
 }

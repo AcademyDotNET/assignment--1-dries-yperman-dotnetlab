@@ -1,5 +1,5 @@
-﻿using BikeShop.Models.Domain;
-using BikeShop.Models.Domain.Products;
+﻿using BikeShop.Data;
+using BikeShop.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace BikeShop
@@ -20,6 +20,10 @@ namespace BikeShop
                 .UseSqlServer(Configuration.GetConnectionString("defaultconnection")));
 
             services.AddControllersWithViews();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IShoppingBagRepository, ShoppingBagRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
