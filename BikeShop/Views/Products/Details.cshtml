@@ -14,7 +14,7 @@
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">#</span>
                 <input type="text" class="form-control" placeholder="How many would you like to order?">
-                <a asp-action="submit" asp-controller="products" class="btn btn-outline-secondary">Submit</a>
+                <a asp-action="submit" asp-controller="products" asp-route-productId="@product.Id" asp-route-quantity="10" class="btn btn-outline-secondary">Submit</a>
             </div>
         </div>
     </div>

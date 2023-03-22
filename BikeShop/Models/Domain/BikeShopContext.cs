@@ -14,5 +14,12 @@ namespace BikeShop.Models.Domain
         public DbSet<ShoppingItem> shoppingItems { get; set; }
         public DbSet<ShoppingBag> shoppingBags { get; set; }
         public DbSet<Customer> customers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>().HasData(new Customer { Name = "Yperman", FirstName = "Dries" });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

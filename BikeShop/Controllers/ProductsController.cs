@@ -12,15 +12,16 @@ namespace BikeShop.Controllers
     public class ProductsController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //private readonly IProductRepository _productRepository;
         BikeShopContext _context;
 
         private int pageSize = 8;
+        private Customer _customer;
 
         public ProductsController(ILogger<HomeController> logger, BikeShopContext context)
         {
             _logger = logger;
             _context = context;
+            _customer = _context.customers.First();
         }
         public async Task<IActionResult> Index(int? pageNumber)
         {
@@ -44,16 +45,19 @@ namespace BikeShop.Controllers
             }
             else return RedirectToAction("Index");
         }
-        /*public IActionResult Submit(Product product, int quantity)
+        public IActionResult Submit(int productId, int quantity)
         {
-            var shoppingItem = new ShoppingItem
-            {
-                Quantity = quantity,
-                Product = product
-            };
+            var product = _context.products.First(e => e.Id == productId);
+            var shoppingItem = new ShoppingItem { Quantity = quantity, Product = product };
+            _context.shoppingItems.Add(shoppingItem);
+            _context.SaveChanges();
 
+            var shoppingBag = _context.shoppingBags.First(e => e.Customer == _customer);
 
-        }*/
+            _logger.LogInformation(shoppingBag.Items.First().Id.ToString());
+
+            return RedirectToAction("Index", "ShoppingBagController");
+        }
 
         // -----CRUD-----
         public void Create(Product product)

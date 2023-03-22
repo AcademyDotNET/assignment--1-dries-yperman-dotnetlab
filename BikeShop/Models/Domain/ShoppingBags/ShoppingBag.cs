@@ -11,6 +11,6 @@ namespace BikeShop.Models.Domain.ShoppingBags
 
         public Customer Customer { get; set; } // Navigation property
 
-        public ICollection<ShoppingItem> Items { get; set; } // Collection navigation property
+        public ICollection<ShoppingItem> Items { get; set; } = new List<ShoppingItem>(); // Collection navigation property
     }
 }

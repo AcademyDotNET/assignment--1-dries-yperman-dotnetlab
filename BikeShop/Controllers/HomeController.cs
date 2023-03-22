@@ -16,14 +16,9 @@ namespace BikeShop.Controllers
         BikeShopContext _context;
 
         private static int count = 0;
-        private static Customer customer = new Customer
-        {
-            Name = "Yperman",
-            FirstName = "Dries"
-        };
 
         public HomeController(ILogger<HomeController> logger, BikeShopContext context)
-        { 
+        {
             _logger = logger;
             _context = context;
         }
@@ -41,32 +36,6 @@ namespace BikeShop.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult SeedDatabase()
-        {
-            _logger.LogInformation("Seeding database with 50 products and one empty shopping bag. Only one customer is needed in this demo");
-
-            IProductRepository productRepository = new ProductRepository();
-            var products = productRepository.GetProducts();
-
-            ShoppingBag bag = new ShoppingBag
-            {
-                Date = DateTime.Now,
-                Customer = customer,
-                Items = new List<ShoppingItem>()
-            };
-
-            _context.Add(bag);
-
-            foreach (Product product in products)
-            {
-                _logger.LogDebug($"Adding product: {product.Name}");
-                _context.Add(product);
-            }
-
-            _context.SaveChanges();
-            return RedirectToAction("Index");
         }
     }
 }
