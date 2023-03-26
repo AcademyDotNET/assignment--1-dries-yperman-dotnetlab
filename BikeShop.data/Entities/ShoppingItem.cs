@@ -6,6 +6,9 @@
         public int Quantity { get; set; }
 
 
-        public Product Product { get; set; } = new Product(); // Navigation property
+        public int ProductId { get; set; }
+        public Product? Product { get; set; } // Navigation property
+        public int ShoppingBagId { get; set; }
+        public ShoppingBag? ShoppingBag { get; set; } // Navigation property
     }
 }

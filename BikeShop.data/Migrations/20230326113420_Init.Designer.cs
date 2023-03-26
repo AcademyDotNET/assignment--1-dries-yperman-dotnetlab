@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BikeShop.Data.Migrations
 {
     [DbContext(typeof(BikeShopContext))]
-    [Migration("20230322181052_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230326113420_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace BikeShop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("customers");
+                    b.ToTable("Customers");
 
                     b.HasData(
                         new
@@ -64,312 +64,306 @@ namespace BikeShop.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("products");
+                    b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "Specialized",
-                            Price = 2048m
+                            Name = "Trek",
+                            Price = 100m
                         },
                         new
                         {
                             Id = 2,
                             Name = "Specialized",
-                            Price = 511m
+                            Price = 200m
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Pinarello",
-                            Price = 1581m
+                            Name = "Giant",
+                            Price = 300m
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Trek",
-                            Price = 1965m
+                            Name = "Cannondale",
+                            Price = 400m
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Specialized",
-                            Price = 3993m
+                            Name = "Scott",
+                            Price = 500m
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Specialized",
-                            Price = 4620m
+                            Name = "Bianchi",
+                            Price = 600m
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Cannondale",
-                            Price = 4782m
+                            Name = "Cervelo",
+                            Price = 700m
                         },
                         new
                         {
                             Id = 8,
-                            Name = "Cervelo",
-                            Price = 2286m
+                            Name = "Pinarello",
+                            Price = 800m
                         },
                         new
                         {
                             Id = 9,
-                            Name = "Scott",
-                            Price = 3307m
+                            Name = "Trek",
+                            Price = 900m
                         },
                         new
                         {
                             Id = 10,
-                            Name = "Giant",
-                            Price = 1063m
+                            Name = "Specialized",
+                            Price = 1000m
                         },
                         new
                         {
                             Id = 11,
                             Name = "Giant",
-                            Price = 3736m
+                            Price = 1100m
                         },
                         new
                         {
                             Id = 12,
-                            Name = "Pinarello",
-                            Price = 668m
+                            Name = "Cannondale",
+                            Price = 1200m
                         },
                         new
                         {
                             Id = 13,
-                            Name = "Specialized",
-                            Price = 3285m
+                            Name = "Scott",
+                            Price = 1300m
                         },
                         new
                         {
                             Id = 14,
-                            Name = "Specialized",
-                            Price = 4368m
+                            Name = "Bianchi",
+                            Price = 1400m
                         },
                         new
                         {
                             Id = 15,
-                            Name = "Giant",
-                            Price = 3487m
+                            Name = "Cervelo",
+                            Price = 1500m
                         },
                         new
                         {
                             Id = 16,
-                            Name = "Cannondale",
-                            Price = 3651m
+                            Name = "Pinarello",
+                            Price = 1600m
                         },
                         new
                         {
                             Id = 17,
-                            Name = "Bianchi",
-                            Price = 3477m
+                            Name = "Trek",
+                            Price = 1700m
                         },
                         new
                         {
                             Id = 18,
                             Name = "Specialized",
-                            Price = 2441m
+                            Price = 1800m
                         },
                         new
                         {
                             Id = 19,
-                            Name = "Cervelo",
-                            Price = 1306m
+                            Name = "Giant",
+                            Price = 1900m
                         },
                         new
                         {
                             Id = 20,
-                            Name = "Specialized",
-                            Price = 4584m
+                            Name = "Cannondale",
+                            Price = 2000m
                         },
                         new
                         {
                             Id = 21,
-                            Name = "Bianchi",
-                            Price = 663m
+                            Name = "Scott",
+                            Price = 2100m
                         },
                         new
                         {
                             Id = 22,
-                            Name = "Trek",
-                            Price = 2172m
+                            Name = "Bianchi",
+                            Price = 2200m
                         },
                         new
                         {
                             Id = 23,
-                            Name = "Pinarello",
-                            Price = 712m
+                            Name = "Cervelo",
+                            Price = 2300m
                         },
                         new
                         {
                             Id = 24,
-                            Name = "Bianchi",
-                            Price = 2856m
+                            Name = "Pinarello",
+                            Price = 2400m
                         },
                         new
                         {
                             Id = 25,
                             Name = "Trek",
-                            Price = 1815m
+                            Price = 2500m
                         },
                         new
                         {
                             Id = 26,
-                            Name = "Scott",
-                            Price = 3329m
+                            Name = "Specialized",
+                            Price = 2600m
                         },
                         new
                         {
                             Id = 27,
-                            Name = "Scott",
-                            Price = 1940m
+                            Name = "Giant",
+                            Price = 2700m
                         },
                         new
                         {
                             Id = 28,
-                            Name = "Giant",
-                            Price = 4621m
+                            Name = "Cannondale",
+                            Price = 2800m
                         },
                         new
                         {
                             Id = 29,
-                            Name = "Trek",
-                            Price = 3154m
+                            Name = "Scott",
+                            Price = 2900m
                         },
                         new
                         {
                             Id = 30,
-                            Name = "Cannondale",
-                            Price = 4361m
+                            Name = "Bianchi",
+                            Price = 3000m
                         },
                         new
                         {
                             Id = 31,
-                            Name = "Scott",
-                            Price = 2832m
+                            Name = "Cervelo",
+                            Price = 3100m
                         },
                         new
                         {
                             Id = 32,
-                            Name = "Cervelo",
-                            Price = 1360m
+                            Name = "Pinarello",
+                            Price = 3200m
                         },
                         new
                         {
                             Id = 33,
-                            Name = "Bianchi",
-                            Price = 3795m
+                            Name = "Trek",
+                            Price = 3300m
                         },
                         new
                         {
                             Id = 34,
-                            Name = "Scott",
-                            Price = 4703m
+                            Name = "Specialized",
+                            Price = 3400m
                         },
                         new
                         {
                             Id = 35,
-                            Name = "Trek",
-                            Price = 739m
+                            Name = "Giant",
+                            Price = 3500m
                         },
                         new
                         {
                             Id = 36,
-                            Name = "Giant",
-                            Price = 3272m
+                            Name = "Cannondale",
+                            Price = 3600m
                         },
                         new
                         {
                             Id = 37,
-                            Name = "Cervelo",
-                            Price = 3416m
+                            Name = "Scott",
+                            Price = 3700m
                         },
                         new
                         {
                             Id = 38,
-                            Name = "Cannondale",
-                            Price = 4057m
+                            Name = "Bianchi",
+                            Price = 3800m
                         },
                         new
                         {
                             Id = 39,
-                            Name = "Trek",
-                            Price = 1855m
+                            Name = "Cervelo",
+                            Price = 3900m
                         },
                         new
                         {
                             Id = 40,
-                            Name = "Cervelo",
-                            Price = 3267m
+                            Name = "Pinarello",
+                            Price = 4000m
                         },
                         new
                         {
                             Id = 41,
-                            Name = "Giant",
-                            Price = 4815m
+                            Name = "Trek",
+                            Price = 4100m
                         },
                         new
                         {
                             Id = 42,
-                            Name = "Cervelo",
-                            Price = 2182m
+                            Name = "Specialized",
+                            Price = 4200m
                         },
                         new
                         {
                             Id = 43,
-                            Name = "Specialized",
-                            Price = 1880m
+                            Name = "Giant",
+                            Price = 4300m
                         },
                         new
                         {
                             Id = 44,
-                            Name = "Pinarello",
-                            Price = 3190m
+                            Name = "Cannondale",
+                            Price = 4400m
                         },
                         new
                         {
                             Id = 45,
                             Name = "Scott",
-                            Price = 1832m
+                            Price = 4500m
                         },
                         new
                         {
                             Id = 46,
-                            Name = "Trek",
-                            Price = 4424m
+                            Name = "Bianchi",
+                            Price = 4600m
                         },
                         new
                         {
                             Id = 47,
-                            Name = "Scott",
-                            Price = 733m
+                            Name = "Cervelo",
+                            Price = 4700m
                         },
                         new
                         {
                             Id = 48,
-                            Name = "Giant",
-                            Price = 1574m
+                            Name = "Pinarello",
+                            Price = 4800m
                         },
                         new
                         {
                             Id = 49,
                             Name = "Trek",
-                            Price = 1611m
-                        },
-                        new
-                        {
-                            Id = 50,
-                            Name = "Bianchi",
-                            Price = 4371m
+                            Price = 4900m
                         });
                 });
 
@@ -391,14 +385,14 @@ namespace BikeShop.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("shoppingBags");
+                    b.ToTable("ShoppingBags");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             CustomerId = 1,
-                            Date = new DateTime(2023, 3, 22, 19, 10, 52, 145, DateTimeKind.Local).AddTicks(759)
+                            Date = new DateTime(2023, 3, 26, 13, 34, 19, 889, DateTimeKind.Local).AddTicks(2979)
                         });
                 });
 
@@ -416,7 +410,7 @@ namespace BikeShop.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShoppingBagId")
+                    b.Property<int>("ShoppingBagId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -425,13 +419,13 @@ namespace BikeShop.Data.Migrations
 
                     b.HasIndex("ShoppingBagId");
 
-                    b.ToTable("shoppingItems");
+                    b.ToTable("ShoppingItems");
                 });
 
             modelBuilder.Entity("BikeShop.Data.Entities.ShoppingBag", b =>
                 {
                     b.HasOne("BikeShop.Data.Entities.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("ShoppingBags")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -442,16 +436,30 @@ namespace BikeShop.Data.Migrations
             modelBuilder.Entity("BikeShop.Data.Entities.ShoppingItem", b =>
                 {
                     b.HasOne("BikeShop.Data.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("ShoppingItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BikeShop.Data.Entities.ShoppingBag", null)
+                    b.HasOne("BikeShop.Data.Entities.ShoppingBag", "ShoppingBag")
                         .WithMany("Items")
-                        .HasForeignKey("ShoppingBagId");
+                        .HasForeignKey("ShoppingBagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
+
+                    b.Navigation("ShoppingBag");
+                });
+
+            modelBuilder.Entity("BikeShop.Data.Entities.Customer", b =>
+                {
+                    b.Navigation("ShoppingBags");
+                });
+
+            modelBuilder.Entity("BikeShop.Data.Entities.Product", b =>
+                {
+                    b.Navigation("ShoppingItems");
                 });
 
             modelBuilder.Entity("BikeShop.Data.Entities.ShoppingBag", b =>

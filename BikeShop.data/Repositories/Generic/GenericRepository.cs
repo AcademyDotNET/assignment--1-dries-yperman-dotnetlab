@@ -17,7 +17,7 @@ namespace BikeShop.Data.Repositories.Generic
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task<T?> GetById(int id)
+        public virtual async Task<T?> GetById(int id)
         {
             return await _context.Set<T>()
                 .AsNoTracking()

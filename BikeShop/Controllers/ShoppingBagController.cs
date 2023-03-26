@@ -1,36 +1,36 @@
-﻿/*using BikeShop.Models;
-using BikeShop.Models.Domain;
-using BikeShop.Models.Domain.Customers;
-using BikeShop.Models.Domain.ShoppingBags;
+﻿using AutoMapper;
+using BikeShop.Data.Repositories;
+using BikeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BikeShop.Controllers
 {
     public class ShoppingBagController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        BikeShopContext _context;
+        private readonly IMapper _mapper;
+        private readonly IShoppingBagRepository _shoppingBagRepository;
 
-        private Customer _customer;
+        private ShoppingBagViewModel _shoppingBagViewModel;
 
+        private int _customerId = 1; // For now there is only one user
+        private int _shoppingBagId = 1; // For now there is only one shopping bag
 
-        public ShoppingBagController(ILogger<HomeController> logger, BikeShopContext context)
+        public ShoppingBagController(IMapper mapper, IShoppingBagRepository shoppingBagRepository)
         {
-            _logger = logger;
-            _context = context;
-            _customer = _context.customers.First();
+            _mapper = mapper;
+
+            _shoppingBagRepository = shoppingBagRepository;
+            
+            _shoppingBagViewModel = new ShoppingBagViewModel();
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var vm = new ShoppingViewModel();
-            vm.ShoppingBag = getShoppingBag(_customer);
-            return View(vm);
-        }
+            var shoppingBagEntity = await _shoppingBagRepository.GetById(_shoppingBagId);
+            var shoppingBagDTO = _mapper.Map<ShoppingBagDTO>(shoppingBagEntity);
 
-        private ShoppingBag getShoppingBag(Customer customer)
-        {
-            return _context.shoppingBags.Where(e => e.Customer.Equals(_customer)).First();
+            _shoppingBagViewModel.ShoppingBag = shoppingBagDTO;
+
+            return View(_shoppingBagViewModel);
         }
     }
 }
-*/
