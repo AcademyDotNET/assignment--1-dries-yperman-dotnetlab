@@ -1,6 +1,6 @@
-﻿@model IndexViewModel
+﻿@model HomeViewModel
 @{
-    var imagePath = "images/bikes/bike" + Model.Count.ToString() + ".jpg";
+    var imagePath = "images/bikes/bike" + Model.GetPicture() + ".jpg";
 }
 
 <div class="bg-image" style="

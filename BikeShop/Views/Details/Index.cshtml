@@ -1,1 +1,24 @@
-﻿
+﻿@model DetailsViewModel
+@{
+    var product = Model.Product;
+}
+<section class="h-100">
+    <div class="container w-50 py-5">
+        <h1>Bike Details</h1>
+        <div class="card mt-4">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Bike Image">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <p class="card-text">Price: $@product.Price</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris euismod, finibus sapien nec, ullamcorper sapien.</p>
+                <form class="input-group mb-5" asp-action="Submit" method="post">
+                    <input type="number" class="form-control" name="quantity" />
+                    <div class="input-group-append">
+                        <input type="hidden" name="productId" value="@product.Id" />
+                        <button class="btn btn-outline-secondary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,6 @@
-﻿using BikeShop.Models.Domain;
-using BikeShop.Models.Domain.Products;
+﻿using BikeShop.Data;
+using BikeShop.Data.Repositories;
+using BikeShop.Data.Repositories.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace BikeShop
@@ -19,7 +20,11 @@ namespace BikeShop
                 options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                 .UseSqlServer(Configuration.GetConnectionString("defaultconnection")));
 
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IShoppingBagRepository, ShoppingBagRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
