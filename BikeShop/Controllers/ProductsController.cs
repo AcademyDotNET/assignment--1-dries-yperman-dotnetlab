@@ -4,6 +4,7 @@ using BikeShop.Data.Entities;
 using BikeShop.Data.Repositories.Generic;
 using AutoMapper;
 using BikeShop.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BikeShop.Controllers
 {
@@ -25,6 +26,7 @@ namespace BikeShop.Controllers
             _productsViewModel = new ProductsViewModel();
         }
 
+        [Authorize]
         public IActionResult Index(int? pageIndex)
         {
             IQueryable<Product> products = _productRepository.GetAll();

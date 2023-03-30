@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace BikeShop.Data.Migrations
+namespace BikeShop.Data.Migrations.BikeShop
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class ShopInit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -152,7 +152,7 @@ namespace BikeShop.Data.Migrations
             migrationBuilder.InsertData(
                 table: "ShoppingBags",
                 columns: new[] { "Id", "CustomerId", "Date" },
-                values: new object[] { 1, 1, new DateTime(2023, 3, 26, 13, 34, 19, 889, DateTimeKind.Local).AddTicks(2979) });
+                values: new object[] { 1, 1, new DateTime(2023, 3, 28, 16, 9, 32, 660, DateTimeKind.Local).AddTicks(7982) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingBags_CustomerId",

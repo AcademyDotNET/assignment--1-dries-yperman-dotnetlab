@@ -1,0 +1,14 @@
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\bin\Debug\net7.0\BikeShop.Data.deps.json
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\bin\Debug\net7.0\BikeShop.Data.runtimeconfig.json
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\bin\Debug\net7.0\BikeShop.Data.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\bin\Debug\net7.0\BikeShop.Data.pdb
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.csproj.AssemblyReference.cache
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.AssemblyInfoInputs.cache
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.AssemblyInfo.cs
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.csproj.CoreCompileInputs.cache
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\refint\BikeShop.Data.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.pdb
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\BikeShop.Data.genruntimeconfig.cache
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop.data\obj\Debug\net7.0\ref\BikeShop.Data.dll

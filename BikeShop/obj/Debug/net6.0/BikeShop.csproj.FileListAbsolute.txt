@@ -94,3 +94,7 @@ D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\Mono.TextTemplat
 D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\System.CodeDom.dll
 D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\AutoMapper.dll
 D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\Core.Identity.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\Identity.Core.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\Identity.EntityFrameworkCore.dll
+D:\DOTnet\Academy\Oefeningen\BikeShop\BikeShop\bin\Debug\net6.0\Identity.Stores.dll

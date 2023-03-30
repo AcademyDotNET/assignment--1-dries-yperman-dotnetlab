@@ -4,16 +4,19 @@ using BikeShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BikeShop.Data.Migrations
+namespace BikeShop.Data.Migrations.BikeShop
 {
     [DbContext(typeof(BikeShopContext))]
-    partial class BikeShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230328140932_ShopInit")]
+    partial class ShopInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -389,7 +392,7 @@ namespace BikeShop.Data.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            Date = new DateTime(2023, 3, 26, 13, 34, 19, 889, DateTimeKind.Local).AddTicks(2979)
+                            Date = new DateTime(2023, 3, 28, 16, 9, 32, 660, DateTimeKind.Local).AddTicks(7982)
                         });
                 });
 

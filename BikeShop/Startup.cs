@@ -1,7 +1,9 @@
 ﻿using BikeShop.Data;
 using BikeShop.Data.Repositories;
 using BikeShop.Data.Repositories.Generic;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace BikeShop
 {
@@ -18,7 +20,13 @@ namespace BikeShop
         {
             services.AddDbContext<BikeShopContext>(options =>
                 options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
-                .UseSqlServer(Configuration.GetConnectionString("defaultconnection")));
+                .UseSqlServer(Configuration.GetConnectionString("webshop")));
+
+            services.AddDbContext<UserDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("identity")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<UserDbContext>()
+              .AddDefaultTokenProviders();
 
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
